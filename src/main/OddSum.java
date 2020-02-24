@@ -10,17 +10,24 @@ public class OddSum {
 
         ArrayList<Integer> listInt = new ArrayList<>();
         int res;
+
         if (!test) {
             System.out.println("Elements' list :");
             for (String v : args)
                 System.out.print(" " + v);
             System.out.println();
         }
+
         for (int i = 0; i < args.length; i++) {
-            listInt.add(Integer.parseInt(args[i]));
+            try {
+                listInt.add(Integer.parseInt(args[i]));
+            } catch (NumberFormatException e) {
+                return -1;
+            }
         }
 
         res = sum(listInt);
+
         if (test) {
             return res;
         }
